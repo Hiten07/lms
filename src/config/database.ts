@@ -17,10 +17,9 @@ import { Permission } from '../models/Permission';
 
 dotenv.config();
 
-
-export const sequelize = new Sequelize('lms', 'avnadmin',process.env.AEVIN_PASSWORD, {
-  host: 'learning-management-system-hiten-lms-sequelize.c.aivencloud.com',
-  port: 24506,
+export const sequelize = new Sequelize(process.env.DB_NAME as string, process.env.DB_USERNAME as string, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  port: 24506, 
   dialect: 'postgres',
   dialectOptions: {
     ssl: {
@@ -35,5 +34,5 @@ export const sequelize = new Sequelize('lms', 'avnadmin',process.env.AEVIN_PASSW
     acquire: 30000,
   },
   logging: false, 
-  models: [user,otp,instructordetails,course,enrolled,coursemodule,lessons,assignment,submission,trackprogress,Role,Userrole,Permission,Rolespermissions],
+  models: [user, otp, instructordetails, course, enrolled, coursemodule, lessons, assignment, submission, trackprogress, Role, Userrole, Permission, Rolespermissions],
 });
