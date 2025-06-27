@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Instructor Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1 {
+      border-bottom: 2px solid #333;
+      color: #2c3e50;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #2980b9;
+      margin-top: 20px;
+    }
+    h6 {
+      font-style: italic;
+      color: #7f8c8d;
+    }
+    .course {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #2980b9;
+      color: white;
+    }
+    tr:hover {
+      background-color: #bdc3c7;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #7f8c8d;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello <%= instructordetails[0].instructor.name %></h1>
+  <h2>Your Monthly Report for <%= instructordetails[0].month %></h2>
+
+    <% instructordetails[0].courses.forEach(course => { %>
+      <div class="course">
+        <h2>Course: <%= course.title %></h2>
+        <h6><%= course.description %></h6>
+        <p><strong>Students Enrolled:</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Sr. No</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% course.enrolleds.forEach((enrollment, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= enrollment.student.firstname %></td>
+                <td><%= enrollment.student.email %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% }) %>
+  
+    <div class="footer">
+      <p>Thank you for your dedication and hard work!</p>
+    </div>
+</body>
+</html>
