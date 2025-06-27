@@ -18,7 +18,7 @@ import { Permission } from '../models/Permission';
 dotenv.config();
 
 
-export const sequelize = new Sequelize('lms', 'avnadmin', 'AVNS_vZCLHdcZLxbWMqq5f__', {
+export const sequelize = new Sequelize('lms', 'avnadmin',process.env.AEVIN_PASSWORD, {
   host: 'learning-management-system-hiten-lms-sequelize.c.aivencloud.com',
   port: 24506,
   dialect: 'postgres',
