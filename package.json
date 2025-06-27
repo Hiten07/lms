@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "npx ts-node --files src/index.ts",
     "migration:create": "npx sequelize-cli migration:generate",
