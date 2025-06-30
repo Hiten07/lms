@@ -6,7 +6,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Learning Management System APIS",
+      title: "Learning Management System API'S",
       version: "1.0.0",
       description: "Digital LMS API's with Swagger documentation",
     },
