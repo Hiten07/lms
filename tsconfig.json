@@ -12,4 +12,5 @@
       "es5","es6","dom","DOM.Iterable"
     ]
   },
+  "include": ["src", "api"]
 }

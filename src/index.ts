@@ -16,28 +16,34 @@ const PORT = process.env.PORT || 3007;
 app.use(express.json());
 app.use(cookieParser());
 
+app.get("/",(req,res) => {
+  res.json({ message: 'Hello from Express!' });
+})
+
 app.use("/api-doc", swaggerUi.serve, swaggerUi.setup(specs));
+
 app.use('/users', authRoutes);
 app.use('/courses', courseRoutes);
+
 app.use('/courses', assignmentRoutes);
 app.use('/coursecontent', courseContentRoutes);
+
 app.use('/student', studentRoutes);
 app.use('/student', assignmentRoutes);
+
 app.use('/enrollcourses', progressRoutes);
 
-// Database connection and sync
 const start = async () => {
   try {
     await sequelize.authenticate();
     await sequelize.sync({ alter: true });
     console.log('✅ Database connected');
-  } catch (err) {
+  } 
+  catch (err) {
     console.error('❌ Failed to connect to the database:', err);
   }
 };
 
-// Start the database connection
 start();
 
-// Export the app for Vercel
 export default app;

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "module": "commanjs",
   "scripts": {
     "start": "npx ts-node --files src/index.ts",
     "migration:create": "npx sequelize-cli migration:generate",
@@ -34,6 +34,7 @@
     "puppeteer": "^24.10.1",
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
+    "serverless-http": "^3.2.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
